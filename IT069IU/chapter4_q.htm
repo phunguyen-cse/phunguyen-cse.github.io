@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+			div.question {color: navy; font-weight: bold; width: 75%; margin: auto 10px; border-left: 1px dotted; position: relative; padding: 10px 5px 10px 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Print outputs</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+import java.util.Scanner;
+
+public class Even
+{
+	public static void main(String args[])
+	{
+		Scanner s = new Scanner(System.in);
+
+		int num;
+
+		while (true)
+		{
+			System.out.println("Enter an integer:");
+			num = s.nextInt();
+
+			if (num%2 == 0)
+				System.out.println("Even");
+			else
+				System.out.println("Odd");
+		}
+	}
+}
+			</pre>
+		</div>
+				<div class = "subtitle">Compelete Code</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+import java.util.Scanner;
+
+public class Freeze
+{
+	public static void main(String args[])
+	{
+		Scanner s = new Scanner(System.in);
+		float temp;
+
+		System.out.println("Enter temperature:");
+
+		//if the temperature is lower than zero, print "Below Frozen Point", otherwise, print "Abover Frozen Point"
+	}
+}
+			</pre>
+		</div>
+				<div class = "block">
+		<pre class = "prettyprint linenums">
+// Student2.java
+public class Student2
+{
+	String name;
+	int age;
+
+	// constructor
+	public Student2()
+	{
+	}
+
+	public Student2(String name, int age)
+	{
+		this.age = age;
+		this.name = name;
+	}
+
+	// accessor
+	public String getName() {return name;}
+
+	public boolean isAbleToDrink()
+	{
+		// put your code here
+	}
+
+	// mutator
+	public void setAge(int age)
+	{
+		this.age = age;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+}
+
+// StudentTest2.java
+public class StudentTest2
+{
+	public static void main(String args[])
+	{
+		Student2 s = new Student2("David", 21);
+
+		if (s.isAbleToDrink())
+			System.out.printf("%s is able to drink\n", s.getName());
+	}
+}
+		</pre>
+	</div>
+
+				<div class = "subtitle">Coding</div>
+		<div class = "block">
+			<div class = "question">
+				1. Write a Java program, ask the user to enter an integer number from keyboard, calculate the summation from 1 to this integer number, for instance, if you enter 100 from keyboard, the program should calculate the summation from 1 to 100 and print 5050 on the screen.
+			</div>
+		</div>
+	</body>
+</html>

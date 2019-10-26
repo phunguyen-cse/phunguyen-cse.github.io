@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+			div.question {color: navy; font-weight: bold; width: 75%; margin: auto 10px; border-left: 1px dotted; position: relative; padding: 10px 5px 10px 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Print out outputs</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class Loop
+{
+	public static void main(String args[])
+	{
+		int count = 0;
+
+		while(true)
+		{
+			if(count == 10)
+				break;
+
+			System.out.println(count);
+			count++;
+		}
+	}
+}
+			</pre>
+		</div>
+
+		<div class = "subtitle">Complete code</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+// print out angles and their cosine value
+// use methods defined in Math library
+public class Cos
+{
+	public static void main(String args[])
+	{
+		for(int i = 0; i &lt; 360; i += 10)
+		{
+			// put your code here
+		}
+	}
+}
+			</pre>
+		</div>
+		<div class = "subtitle">Coding</div>
+		<div class = "block">
+			<div class = "question">
+				Write a java program to generate the multiplication table.
+			</div>
+		</div>
+	</body>
+</html>

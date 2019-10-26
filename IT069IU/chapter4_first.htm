@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Increment and Decrement Operators</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class Assignment
+{
+	public static void main(String args[])
+	{
+		int i = 1;
+
+		// increment operator
+		System.out.println("==============Increment================");
+		i++;// i = i+1
+		System.out.printf("i++: %d\n", i);
+
+		// decrement operator
+		System.out.println("==============Decrement================");
+		i--;// i = i-1
+		System.out.printf("i--: %d\n", i);
+
+		// implement order
+		System.out.println("==============Implement Order=============");
+		System.out.printf("i++: %d\n", i++);// print i, then i++
+		System.out.printf("i: %d\n", i);
+
+		System.out.printf("++i: %d\n", ++i);// i++, then print i
+		System.out.printf("i: %d\n", i);
+	}
+}
+			</pre>
+		</div>
+				<div class = "subtitle">Compound Assignment Operators</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class Compound
+{
+	public static void main(String args[])
+	{
+		int i = 10;
+
+		// +=
+		i += 1;// i = i+1
+		System.out.println(i);
+
+		// -=
+		i -= 2;// i = i-2
+		System.out.println(i);
+
+		// *=
+		i *= 10;
+		System.out.println(i);
+
+		// /=
+		i /= 5;
+		System.out.println(i);
+	}
+}
+			</pre>
+		</div>
+		<div class = "subtitle">if ... else ...</div>
+		<div class = "block">
+			Relational Operator<br>
+			&lt;, &gt;, &lt;=, &gt;=, ==
+		</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+import java.util.Scanner;
+
+public class Age
+{
+	public static void main(String args[])
+	{
+		int age;
+		Scanner s = new Scanner(System.in);
+
+		System.out.println("Enter you age: ");
+		age = s.nextInt();
+
+		if (age &gt;= 21)
+		{
+			System.out.println("You can drink alcohol");
+		}
+		else
+		{
+			System.out.println("You are not allowed to drink alcohol");
+		}
+	}
+}
+			</pre>
+		</div>
+		<div class = "block">
+			<span style = "color:red"><i>if there is only one line code within braces, braces are able to be ignored</i></span>
+		</div>
+		<div class = "block">
+			<img src = "slides/if2.png" width=100% />
+		</div>
+		<div class = "block">
+		<pre class = "prettyprint linenums">
+import java.util.Scanner;
+
+public class Grade
+{
+	public static void main(String args[])
+	{
+		int grade;
+		Scanner s = new Scanner(System.in);
+
+		System.out.println("Enter your grade: ");
+		grade = s.nextInt();
+
+		if (grade &gt;= 90)
+			System.out.println("A");
+		else if (grade &gt;= 80)
+			System.out.println("B");
+		else if (grade &gt;= 70)
+			System.out.println("C");
+		else
+			System.out.println("You need to re-take the course!");
+	}
+}
+		</pre>
+	</div>
+		<div class = "block">
+			<img src = "slides/if3.png" width = 100% />
+		</div>
+				<div class = "block">
+		<pre class = "prettyprint linenums">
+import java.util.Scanner;
+
+public class Number
+{
+	public static void main(String args[])
+	{
+		Scanner s = new Scanner(System.in);
+
+		int num;
+
+		System.out.println("Enter an integer: ");
+		num = s.nextInt();
+
+		if (num &gt; 100)
+		{
+			System.out.println("Greater than 100");
+			if (num%2 == 0)
+				System.out.println("Even");
+			else
+				System.out.println("Odd");
+		}
+		else
+		{
+			System.out.println("Not greater than 100");
+		}
+	}
+}
+		</pre>
+	</div>
+		<div class = "subtitle">while</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class Loop
+{
+	public static void main(String args[])
+	{
+		int i = 10;
+
+		while (i &gt; 0)
+		{
+			System.out.printf("%10d%10d\n", i, i*i);
+			i--;
+		}
+	}
+}
+			</pre>
+		</div>
+		<div class = "block">
+			<p style="text-align:center;"><img src = "slides/While.png" width=50% /></p>
+		</div>
+
+		<div class = "subtitle">if ... else ... in class</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+// Student.java
+public class Student
+{
+	int grade;
+	String name;
+
+	// constructor
+	public Student()
+	{
+	}
+
+	public Student(String name, int grade)
+	{
+		this.grade = grade;
+		this.name = name;
+	}
+
+	// accessor
+	public int getGrade() {return grade;}
+	public String getName() {return name;}
+
+	public String getLetterGrade()
+	{
+		if (grade &gt;= 90)
+			return "A";
+		else if (grade &gt;= 80)
+			return "B";
+		else if (grade &gt;= 70)
+			return "C";
+		else if (grade &gt;= 60)
+			return "D";
+		else
+			return "F";
+	}
+
+	// mutator
+	public void setGrade(int grade)
+	{
+		this.grade = grade;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+}
+			</pre>
+		</div>
+				<div class = "block">
+		<pre class = "prettyprint linenums">
+// StudentTest.java
+public class StudentTest
+{
+	public static void main(String args[])
+	{
+		Student s = new Student("David", 95);
+		System.out.printf("%10s:%10s\n", s.getName(), s.getLetterGrade());
+	}
+}
+		</pre>
+	</div>
+			<div class = "subtitle">Calculate the average grade</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+import java.util.Scanner;
+
+public class Average
+{
+	public static void main(String args[])
+	{
+		int grade = 0;
+		int count = 0; // count the number of grades
+		int sum = 0; // save the accumulation
+
+		Scanner s = new Scanner(System.in);
+
+		// read grades, type in a negative number to stop
+		while (grade &gt;= 0)
+		{
+			System.out.println("Enter the grade:");
+			grade = s.nextInt();
+			if (grade &gt;= 0)
+			{
+				sum += grade;
+				count++;
+			}
+		}
+
+		System.out.printf("Average grade: %10.2f\n", (float)sum/count);
+	}
+}
+			</pre>
+		</div>
+	</body>
+</html>

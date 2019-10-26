@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">For loop</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class Num
+{
+	public static void main(String args[])
+	{
+		for(int i = 0; i &lt; 10; i++)
+		{
+			System.out.println(i);
+		}
+	}
+}
+			</pre>
+		</div>
+		<div class = "block">
+			<p style = "text-align:center;"><img src = "slides/for.png" width = 60%></p>
+		</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class Sum
+{
+	public static void main(String args[])
+	{
+		int sum = 0;
+
+		for(int i = 0; i &lt; 10; i++)
+		{
+			sum += i;
+		}
+
+		System.out.printf("Sum : %d\n", sum);
+	}
+}
+			</pre>
+		</div>
+		<div class = "subtitle">Break and continue</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class Break
+{
+	public static void main(String args[])
+	{
+		for(int i = 0; i &lt; 10; i++)
+		{
+			if (i == 6)
+				break;
+
+			System.out.println(i);
+		}
+	}
+}
+			</pre>
+		</div>
+		<div class = "block">
+		<pre class = "prettyprint linenums">
+public class Continue
+{
+	public static void main(String args[])
+	{
+		for(int i = 0; i &lt; 10; i++)
+		{
+			if (i == 6)
+				continue;
+
+			System.out.println(i);
+		}
+	}
+}
+		</pre>
+		</div>
+		<div class = "subtitle">Logical Operators</div>
+		<div class = "block">
+			<p style = "text-align:center;"><img src = "slides/Logical.png" width = 40%></p>
+		</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+import java.util.Scanner;
+
+public class Num2
+{
+	public static void main(String args[])
+	{
+		Scanner s = new Scanner(System.in);
+		int num;
+
+		num = s.nextInt();
+
+		// AND
+		if ((num &gt; 10) && (num % 2 == 0))
+			System.out.println("Greater than 10 and Even");
+
+		// OR
+		if ((num &lt; 10) || (num &gt; 20))
+			System.out.println("Greater than 20 or Less than 10");
+
+		// Not
+		if (!(num % 2 == 0))
+			System.out.println("Odd");
+	}
+}
+			</pre>
+		</div>
+		<div class = "subtitle">Nested for loop</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class Nested
+{
+	public static void main(String args[])
+	{
+		for(int i = 0; i &lt; 3; i++)
+		{
+			for(int j = 0; j &lt; 3; j++)
+			{
+				System.out.printf("%d + %d = %d\n", i, j, i+j);
+			}
+		}
+	}
+}
+			</pre>
+		</div>
+				<div class = "subtitle">Do ... while ...</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class While
+{
+	public static void main(String args[])
+	{
+		int i = 0;
+
+		do
+		{
+			System.out.println(i);
+			i++;
+		}while (i &lt; 10);
+	}
+}
+			</pre>
+		</div>
+	</body>
+</html>

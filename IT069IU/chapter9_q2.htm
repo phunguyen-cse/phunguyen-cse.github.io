@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+			div.question {color: navy; font-weight: bold; width: 75%; margin: auto 10px; border-left: 1px dotted; position: relative; padding: 10px 5px 10px 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Complete code</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+//Student.java
+public class Student
+{
+	private String name;
+	protected int UID;
+
+	public Student()
+	{
+	}
+
+	public Student(String n)
+	{
+		name = n;
+		UID = 0;
+	}
+
+	public Student(String n, int u)
+	{
+		name = n;
+		UID = u;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public int getUID()
+	{
+		return UID;
+	}
+
+	public void setName(String n)
+	{
+		name = n;
+	}
+
+	public void setUID(int u)
+	{
+		UID = u;
+	}
+
+	public String toString()
+	{
+		return name + ", " + UID;//string concatenation
+	}
+}
+			</pre>
+			<pre class = "prettyprint linenums">
+//CSStudent.java
+public class CSStudent extends Student
+{
+	private String concentration;//either scientific or IT
+
+	public CSStudent(String n, int u, String c)
+	{
+		super(n, u);
+		concentration = c;
+	}
+
+	public String getConcentration()
+	{
+		return concentration;
+	}
+
+	public void setConcentration(String c)
+	{
+		concentration = c;
+	}
+
+	public String toString()
+	{
+		//put your code here
+	}
+}
+			</pre>
+			<pre class = "prettyprint linenums">
+//Test.java
+public class Test
+{
+	public static void main(String args[])
+	{
+		Student s = new Student("Mike", 1);
+		System.out.println(s.toString());
+
+		CSStudent c = new CSStudent("David", 2, "Scientific");
+		System.out.println(c.toString());
+	}
+}
+			</pre>
+		</div>
+	</body>
+</html>

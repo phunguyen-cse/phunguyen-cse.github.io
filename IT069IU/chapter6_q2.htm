@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+			div.question {color: navy; font-weight: bold; width: 75%; margin: auto 10px; border-left: 1px dotted; position: relative; padding: 10px 5px 10px 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Print outputs</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+import java.util.Random;
+
+public class Ran
+{
+	public static int getRand()
+	{
+		Random r = new Random();
+		return r.nextInt(10);
+	}
+
+	public static void main(String args[])
+	{
+		int sum = 0;
+
+		for(int i = 0; i &lt; 5; i++)
+		{
+			int r = getRand();
+			sum += r;
+			System.out.println(r);
+		}
+
+		System.out.printf("Sum: %d\n", sum);
+	}
+}
+			</pre>
+		</div>
+				<div class = "subtitle">Complete code</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class Temp
+{
+	//convert fahrenheit temperature to celsius temperature
+	public static double f2c(double f)
+	{
+		double c;
+
+		//put your code here
+
+		return c;
+	}
+
+	//convert celsius temperature to fahrenheit temperature
+	public static double c2f(double c)
+	{
+		double f;
+
+		//put your code here
+
+		return f;
+	}
+
+	public static void main(String args[])
+	{
+		Scanner s = new Scanner(System.in);
+
+		double f, c;
+
+		System.out.println("Enter the Fahrenheit temperature:");
+		f = s.nextDouble();
+		System.out.printf("Celsius temperature: %f\n", f2c(f));
+
+		System.out.println("Enter the Celsius temperature:");
+		c = s.nextDouble();
+		System.out.printf("Fahrenheit temperature: %f\n", c2f(c));
+	}
+}
+			</pre>
+		</div>
+				<div class = "block">
+		<pre class = "prettyprint linenums">
+public class Student
+{
+	private int grade;
+	private String name;
+
+	// constructor
+	public Student(String name, int grade)
+	{
+		this.grade = grade;
+		this.name = name;
+	}
+
+	//accessor
+	public int getGrade() {return grade;}
+	public String getName() {return name;}
+
+	public boolean greater(Student s)
+	{
+		//put your code here
+		//compare two grades
+		return true;
+	}
+
+	public static void main(String args[])
+	{
+		Student s1 = new Student("David", 90);
+		Student s2 = new Student("Mike", 85);
+
+		if (s1.greater(s2))
+		{
+			System.out.printf("%s has better grade than %s\n", s1.getName(), s2.getName());
+		}
+	}
+}
+		</pre>
+	</div>
+	<div class = "subtitle">Coding</div>
+	<div class = "block">
+		<div class = "question">
+			Write a Java program, create three students: <br>1. get the student with better score from the first two students; <br>2. get the student with the best score<br>
+			Hint: use method overloading
+		</div>
+		<br>
+		<div class = "question">
+			Write an application that simulate dice tossing. Let the program toss a dice 100 times, count the number of getting 6
+		</div>
+	</div>
+	</body>
+</html>

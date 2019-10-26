@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Scope</div>
+		<div class = "block">
+			<ul>
+				<li>The scope of the parameters of a method is the body of the method</li>
+				<li>The scope of a local variable is from the point at which the declaration appears to the end of that block</li>
+				<li>The scope of a variable in the initialization section of a for loop is the body of the for loop</li>
+				<li>The scope of a method or field of a class is the entire body of the class</li>
+		</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class Scope
+{
+	int v = 0;//the scope is the entire body of the class
+
+	public void increase()
+	{
+		v++;
+	}
+
+	public static void f()
+	{
+		int num;//the scope is the body of f()
+	}
+
+	public static void main(String args[]){
+		int num = 0;//the scope is the body of main()
+		System.out.printf("num: %d\n", num);
+
+		{
+			int local = 10;//the scope is from the point at which the declaration appears to the end of the block
+			System.out.printf("local: %d\n", local);
+		}
+
+		System.out.printf("local: %d\n", local);//compiling error, local is unknown
+
+		for(int i = 0; i &lt; 10; i++)// the scope of i is the body of the for loop
+		{
+			System.out.println(i);
+		}
+
+		System.out.printf("i: %d\n", i);//compiling error, i is unknown
+
+		System.out.printf("num: %d\n", num);
+	}
+}
+			</pre>
+		</div>
+		<div class = "subtitle">Multiple arguments and method overloading</div>
+		<div class = "block">
+		<pre class = "prettyprint linenums">
+public class Mul
+{
+	public static int maximum(int a, int b)
+	{
+		if (a > b)
+			return a;
+		else
+			return b;
+	}
+
+	public static double maximum(int a, double b)
+	{
+		if (a > b)
+			return (float)a;
+		else
+			return b;
+	}
+
+	public static double maximum(double a, double b)
+	{
+		if (a > b)
+			return a;
+		else
+			return b;
+	}
+
+	public static int maximum(int a, int b, int c)
+	{
+		int m;
+
+		m = a;
+
+		if (b &gt; m)
+			m = b;
+
+		if (c &gt; m)
+			m = c;
+
+		return m;
+	}
+
+	public static void main(String args[])
+	{
+		int a = 1, b = 2, c = 3;
+		double d = 3.14, e = 5.1;
+
+		System.out.println(maximum(a, b));
+
+		System.out.println(maximum(a, b, c));
+
+		System.out.println(maximum(a, d));
+
+		System.out.println(maximum(d, e));
+	}
+}
+		</pre>
+	</div>
+			<div class = "block">
+				<span style = "color:red">Method signature -- a combination of the method's name and the number, types and order of its parameters</span>
+		</div>
+				<div class = "subtitle">Mutable and Immutable</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class Num
+{
+	private int n;
+
+	public Num(int n)
+	{
+		this.n = n;
+	}
+
+	public int getNum()
+	{
+		return n;
+	}
+
+	public void setNum(int n)
+	{
+		this.n = n;
+	}
+}
+			</pre>
+		</div>
+				<div class = "block">
+		<pre class = "prettyprint linenums">
+public class Mutable
+{
+	public static void change(int n)
+	{
+		n++;
+		display(n);
+	}
+
+	public static void display(int n)
+	{
+		System.out.println(n);
+	}
+
+	public static void changeNum(Num n)
+	{
+		n.setNum(n.getNum()+1);
+		displayNum(n);
+	}
+
+	public static void displayNum(Num n)
+	{
+		System.out.println(n.getNum());
+	}
+
+	public static void main(String args[])
+	{
+		//immutable
+		int n = 0;
+		display(n);
+		change(n);
+		display(n);
+
+		//mutable
+		Num num = new Num(10);
+		displayNum(num);
+		changeNum(num);
+		displayNum(num);
+	}
+}
+		</pre>
+	</div>
+	</body>
+</html>

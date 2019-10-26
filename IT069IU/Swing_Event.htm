@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Java</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "title">
+			Event
+		</div>
+
+		<div class = "subtitle">Re-Organize Code</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+import java.awt.*;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.border.Border;
+
+public class Draw extends JFrame
+{
+	private JLabel label = new JLabel("Label");
+	private JButton button = new JButton("Button");
+	private Border border = BorderFactory.createLineBorder(Color.BLUE, 1);
+
+	public Draw()
+	{
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setPreferredSize(new Dimension(500, 200));
+		setLayout(null);
+
+		label.setBorder(border);
+		label.setBounds(10, 20, 200, 50);
+
+		button.setBounds(250, 20, 200, 50);
+
+		add(label);
+		add(button);
+
+		pack();//adjust frame size
+		setVisible(true);
+	}
+
+	public static void main(String args[])
+	{
+		//create JFrame Object as the container
+		Draw draw = new Draw();
+	}
+}
+			</pre>
+		</div>
+		<div class = "subtitle">Add Event Listener</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.border.Border;
+
+public class Draw extends JFrame
+{
+	private JLabel label = new JLabel("Label");
+	private JButton button = new JButton("Button");
+	private Border border = BorderFactory.createLineBorder(Color.BLUE, 1);
+
+	public Draw()
+	{
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setPreferredSize(new Dimension(500, 200));
+		setLayout(null);
+
+		label.setBorder(border);
+		label.setBounds(10, 20, 200, 50);
+
+		button.setBounds(250, 20, 200, 50);
+		button.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				label.setText("Hello World!");
+			}
+		});
+
+		add(label);
+		add(button);
+
+		pack();//adjust frame size
+		setVisible(true);
+	}
+
+	public static void main(String args[])
+	{
+		//create JFrame Object as the container
+		Draw draw = new Draw();
+	}
+}
+			</pre>
+		</div>
+		<div class = "subtitle">&deg;F to &deg;C</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.border.Border;
+
+public class Draw extends JFrame
+{
+	private JTextArea text = new JTextArea("32");
+	private JLabel label = new JLabel("0");
+	private JButton button = new JButton("Convert");
+	private Border border = BorderFactory.createLineBorder(Color.BLUE, 1);
+
+	public Draw()
+	{
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setPreferredSize(new Dimension(800, 200));
+		setLayout(null);
+
+		text.setBounds(10, 20, 200, 50);
+		text.setFont(text.getFont().deriveFont(18f));
+
+		label.setBorder(border);
+		label.setBounds(500, 20, 200, 50);
+		label.setFont(label.getFont().deriveFont(18f));
+
+		button.setBounds(250, 20, 200, 50);
+		button.setFont(button.getFont().deriveFont(18f));
+		button.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				double fTemperature = Double.parseDouble(text.getText());
+				double cTemperature = (fTemperature-32)*5/9.0;
+				String str = String.format("%.2f", cTemperature);
+				label.setText(str);
+			}
+		});
+
+		add(text);
+		add(label);
+		add(button);
+
+		pack();//adjust frame size
+		setVisible(true);
+	}
+
+	public static void main(String args[])
+	{
+		//create JFrame Object as the container
+		Draw draw = new Draw();
+	}
+}
+			</pre>
+		</div>
+		<div class = "subtitle">&deg;F to &deg;C Decoration</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+
+public class Draw extends JFrame
+{
+	private JTextField text = new JTextField("32");
+	private JLabel label = new JLabel("0");
+	private JLabel label2 = new JLabel("<html><font color=red>&deg;F</font></html>");
+	private JLabel label3 = new JLabel("<html><font color=blue>&deg;C</font></html>");
+	private JButton button = new JButton("Convert");
+	private Border border = BorderFactory.createLineBorder(Color.BLUE, 1);
+
+	public Draw()
+	{
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setPreferredSize(new Dimension(800, 150));
+		setLayout(null);
+
+		text.setBounds(10, 20, 200, 50);
+		text.setFont(text.getFont().deriveFont(18f));
+		label2.setBounds(210, 20, 50, 50);
+		label2.setFont(label2.getFont().deriveFont(18f));
+
+		label.setBorder(border);
+		label.setBounds(500, 20, 200, 50);
+		label.setFont(label.getFont().deriveFont(18f));
+		label3.setBounds(700, 20, 50, 50);
+		label3.setFont(label3.getFont().deriveFont(18f));
+
+		button.setBounds(260, 20, 200, 50);
+		button.setFont(button.getFont().deriveFont(18f));
+		button.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				double fTemperature = Double.parseDouble(text.getText());
+				double cTemperature = (fTemperature-32)*5/9.0;
+				String str = String.format("%.2f", cTemperature);
+				label.setText(str);
+			}
+		});
+
+		add(text);
+		add(label2);
+		add(label);
+		add(label3);
+		add(button);
+
+		pack();//adjust frame size
+		setVisible(true);
+	}
+
+	public static void main(String args[])
+	{
+		//create JFrame Object as the container
+		Draw draw = new Draw();
+	}
+}
+			</pre>
+		</div>
+	</body>
+</html>

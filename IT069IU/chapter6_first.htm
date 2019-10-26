@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Static Method, Static Fields</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+//S.java
+public class S
+{
+	public static void f()
+	{
+		System.out.println("f() function");
+	}
+
+	public static void f2()
+	{
+		System.out.println("f2() function");
+	}
+
+	public static final int N = 100;
+}
+			</pre>
+		</div>
+				<div class = "block">
+		<pre class = "prettyprint linenums">
+public class STest
+{
+	public static void main(String args[])
+	{
+		S.f();
+		S.f2();
+		System.out.println(S.N);
+	}
+}
+		</pre>
+	</div>
+	<div class = "block">
+		static methods and static fields are special class methods and fields that are able to be accessed by ClassName.Method or ClassName.Field, they are shared by all objects declared by the class
+	</div>
+			<div class = "subtitle">Shared static methods and static fields</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+//Student.java
+public class Student
+{
+	public static int num = 0;//stattic field
+	private int grade;//instance field
+	private String name;//instance field
+
+	// constructor
+	public Student()
+	{
+		num++;
+	}
+
+	public Student(String name, int grade)
+	{
+		this.grade = grade;
+		this.name = name;
+		num++;
+	}
+
+	// static methods
+	public static int getNum()
+	{
+		return num;
+	}
+
+	// accessor
+	public int getGrade() {return grade;}
+	public String getName() {return name;}
+
+	// mutator
+	public void setGrade(int grade)
+	{
+		this.grade = grade;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+
+	public static void main(String args[])
+	{
+		System.out.println(Student.getNum());
+
+		Student s1 = new Student("David", 90);
+		Student s2 = new Student("Mike", 80);
+
+		System.out.printf("%d students have been created\n", Student.getNum());
+	}
+}
+		</pre>
+	</div>
+	<div class = "block">
+		<ul>
+			<li>instance methods can access instance variables and instance methods</li>
+			<li>instance methods can access static fields and static methods</li>
+			<li>static methods can access static fields and static method</li>
+			<li>static methods cannot access instance variables or instance methods</li>
+		</ul>
+	</div>
+	<div class = "subtitle">Math</div>
+	<div class = "block">
+		<a href = "https://docs.oracle.com/javase/7/docs/api/java/lang/Math.html">Math</a>
+	</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class MathTest
+{
+	public static void main(String arg[])
+	{
+		//pi
+		System.out.println(Math.PI);
+
+		//abs
+		System.out.println(Math.abs(-100));
+
+		//ceil
+		System.out.println(Math.ceil(9.1));
+
+		//floor
+		System.out.println(Math.floor(9.1));
+
+		//cos
+		System.out.println(Math.cos(3.14));
+
+		//sqrt
+		System.out.println(Math.sqrt(100));
+
+		//pow
+		System.out.println(Math.pow(10, 2));
+	}
+}
+			</pre>
+		</div>
+			<div class = "block">
+		<p style="text-align:center;"><img src = "slides/Static.png" width = 50%></p>
+	</div>
+	</body>
+</html>

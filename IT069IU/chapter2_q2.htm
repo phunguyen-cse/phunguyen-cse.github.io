@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercise</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+			div.question {color: navy; font-weight: bold; width: 75%; margin: auto 10px; border-left: 1px dotted; position: relative; padding: 10px 5px 10px 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Print Outputs</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class Read
+{
+	public static void main(String args[])
+	{
+		System.out.printf("%10d*%10d=%10d\n", 1, 1, 1*1);
+		System.out.printf("%10d*%10d=%10d\n", 2, 2, 2*2);
+		System.out.printf("%10d*%10d=%10d\n", 3, 3, 3*3);
+		System.out.printf("%10d*%10d=%10d\n", 4, 4, 4*4);
+	}
+}
+			</pre>
+		</div>
+				<div class = "block">
+		<pre class = "prettyprint linenums">
+import java.util.Scanner
+
+public class Arithmetic
+{
+	public static void main(String args[])
+	{
+		int a, b;
+		Scanner reader = new Scanner(System.in);
+
+		a = reader.nextInt();//input 10
+		b = reader.nextInt();//input 2
+
+		System.out.printf("%d + %d = %d\n", a, b, a+b);
+		System.out.printf("%d - %d = %d\n", a, b, a-b);
+		System.out.printf("%d * %d = %d\n", a, b, a*b);
+		System.out.printf("%d / %d = %d\n", a, b, a/b);
+		System.out.printf("%d % %d = %d\n", a, b, a%b);
+	}
+}
+		</pre>
+	</div>
+					<div class = "block">
+	<pre class = "prettyprint linenums">
+import java.util.Scanner;
+
+public class Max
+{
+	public static void main(String args[])
+	{
+		int a, b, c;
+		int max;
+
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter first number: ");// input 10
+		a = s.nextInt();
+		System.out.println("Enter second number: ");// input 5
+		b = s.nextInt();
+		System.out.println("Enter third number: ");// input 100
+		c = s.nextInt();
+
+		max = a;
+		if (b &gt; max)
+			max = b;
+		if (c &gt; max)
+			max = c;
+
+		System.out.println(max);
+	}
+}
+
+	</pre>
+</div>
+
+				<div class = "subtitle">Complete Code</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+import java.util.Scanner;
+
+public class Tri
+{
+	// define variable x
+	int x;
+
+	// define Scanner object
+	Scanner s = new Scanner(System.in);
+
+	// read an integer number
+	x = s.nextInt();
+
+	// define variable y to save the result
+	int y;
+
+	// y = x^3 + x^2 + x + 7
+	// add your code
+	
+	System.out.println(y);
+}
+			</pre>
+		</div>
+				<div class = "block">
+		<pre class = "prettyprint linenums">
+import java.util.Scanner
+
+public class Area
+{
+	public static void main(String args[])
+	{
+		float radius;
+		Scanner s = new Scanner(System.in);
+
+		radius = s.nextFloat();//input 3.5
+
+		// calculate circumference of a circle
+		float cirum;
+		// use Math.PI
+		// cirum = 2*pi*r
+		// add your code
+
+		// calculate area of the circle
+		float area;
+		// area = pi*r*r
+		// add your code
+
+		System.out.println("Circumference: %f; Area: %f\n", cirum, area);
+	}
+}
+		</pre>
+	</div>
+
+						<div class = "subtitle">Coding</div>
+		<div class = "block">
+			<div class = "question">
+				Write a Java program to print out the following table
+				<table>
+					<tr><th>number</th><th>square</th><th>cube</th></tr>
+					<tr><td>1</td><td>1</td><td>1</td></tr>
+					<tr><td>2</td><td>4</td><td>8</td></tr>
+					<tr><td>3</td><td>9</td><td>27</td></tr>
+					<tr><td>4</td><td>16</td><td>64</td></tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

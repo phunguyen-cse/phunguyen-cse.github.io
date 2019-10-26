@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Student and CSStudent</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class Student
+{
+	private String name;
+
+	public Student()
+	{
+	}
+
+	public Student(String n)
+	{
+		name = n;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public void setName(String n)
+	{
+		name = n;
+	}
+
+	public static void main(String args[])
+	{
+		Student s = new Student("David");
+		System.out.printf("%s\n", s.getName());
+	}
+}
+			</pre>
+		</div>
+				<div class = "block">
+		<pre class = "prettyprint linenums">
+public class CSStudent
+{
+	public String name;
+	public String concentration;//either DS or IT
+
+	public CSStudent()
+	{
+	}
+
+	public CSStudent(String n, String c)
+	{
+		name = n;
+		concentration = c;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public String getConcentration()
+	{
+		return concentration;
+	}
+
+	public void setName(String n)
+	{
+		name = n;
+	}
+
+	public void setConcentration(String c)
+	{
+		concentration = c;
+	}
+
+	public void display()
+	{
+		System.out.printf("%s, %s\n", getName(), getConcentration());
+	}
+
+	public static void main(String args[])
+	{
+	}
+}
+		</pre>
+	</div>
+				<div class = "block">
+			<p style="text-align:center;"><img src = "slides/class2.png" width = 50%></p>
+		</div>
+			<div class = "subtitle">Inheritance</div>
+		<div class = "block">
+			<p style="text-align:center;"><img src = "slides/Inheritance.png" width = 50%></p>
+		</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class CSStudent extends Student
+{
+	private String concentration;//either DS or IT
+
+	public CSStudent()
+	{
+	}
+
+	public CSStudent(String n, String c)
+	{
+		super(n);
+		concentration = c;
+	}
+
+	public String getConcentration()
+	{
+		return concentration;
+	}
+
+	public void setConcentration(String c)
+	{
+		concentration = c;
+	}
+
+	public void display()
+	{
+		//System.out.printf("%s, %s\n", name, concentration);//compile error, name is private field in parent, not able to be accessed directly
+		System.out.printf("%s, %s\n", getName(), getConcentration());
+	}
+
+	public static void main(String args[])
+	{
+		CSStudent s = new CSStudent("David", "IT");
+		s.display();
+	}
+}
+			</pre>
+		</div>
+		<div class = "block">
+			<p style="text-align:center;"><img src = "slides/class.png" width = 20%></p>
+		</div>
+		<div class = "block">
+			<ul>
+				<li>public methods and fields will be inherited from the parent</li>
+				<li>private methods and fields in the parent are not inderited by child, but child can access those methods and fields by inherited methods</li>
+				<li>Constructor in child can use super() to call constructor in parent</li>
+			</ul>
+		</div>
+	</body>
+</html>

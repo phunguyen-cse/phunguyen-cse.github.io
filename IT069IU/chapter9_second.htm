@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Protected</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+//Student.java
+public class Student
+{
+	private String name;
+	protected int UID;
+
+	public Student()
+	{
+	}
+
+	public Student(String n)
+	{
+		name = n;
+		UID = 0;
+	}
+
+	public Student(String n, int u)
+	{
+		name = n;
+		UID = u;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public int getUID()
+	{
+		return UID;
+	}
+
+	public void setName(String n)
+	{
+		name = n;
+	}
+
+	public void setUID(int u)
+	{
+		UID = u;
+	}
+}
+			</pre>
+			<pre class = "prettyprint linenums">
+//CSStudent.java
+public class CSStudent extends Student
+{
+	private String concentration;//either scientific or IT
+
+	public CSStudent(String n, int u, String c)
+	{
+		super(n, u);
+		concentration = c;
+	}
+
+	public String getConcentration()
+	{
+		return concentration;
+	}
+
+	public void setConcentration(String c)
+	{
+		concentration = c;
+	}
+
+	public void display()
+	{
+		//System.out.printf("%s, %s\n", name, concentration);//not able to access parent private fields directly
+		System.out.printf("Name: %s\n", getName());
+		System.out.printf("UID: %d\n", UID);
+		System.out.printf("Concentration: %s\n", concentration);
+	}
+}
+			</pre>
+			<pre class = "prettyprint linenums">
+//Test.java
+public class Test
+{
+	public static void main(String args[])
+	{
+		Student s = new Student("Mike", 1);
+		System.out.printf("Name: %s\n", s.getName());
+		System.out.printf("UID: %d\n", s.getUID());
+
+		CSStudent c = new CSStudent("David", 2, "Scientific");
+		c.display();
+	}
+}
+			</pre>
+		</div>
+		<div class = "block">
+			<ul>
+				<li>private methods and fields in parent class are not able to be accessed directly in child class</li>
+				<li>protected methods and fields in parent class are inherited in child class, can be accessed directly in child class</li>
+			</ul>
+		</div>
+		<div class = "block">
+			<p style="text-align:center;"><img src = "slides/class3.png" width = 50%></p>
+		</div>
+				<div class = "subtitle">Overriding</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class Student
+{
+	private String name;
+	protected int UID;
+
+	public Student()
+	{
+	}
+
+	public Student(String n)
+	{
+		name = n;
+		UID = 0;
+	}
+
+	public Student(String n, int u)
+	{
+		name = n;
+		UID = u;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public int getUID()
+	{
+		return UID;
+	}
+
+	public void setName(String n)
+	{
+		name = n;
+	}
+
+	public void setUID(int u)
+	{
+		UID = u;
+	}
+
+	public void display()
+	{
+		System.out.printf("Name: %s\n", name);
+		System.out.printf("UID: %d\n", UID);
+	}
+}
+			</pre>
+			<pre class = "prettyprint linenums">
+public class CSStudent extends Student
+{
+	private String concentration;//either scientific or IT
+
+	public CSStudent(String n, int u, String c)
+	{
+		super(n, u);
+		concentration = c;
+	}
+
+	public String getConcentration()
+	{
+		return concentration;
+	}
+
+	public void setConcentration(String c)
+	{
+		concentration = c;
+	}
+}
+			</pre>
+			<pre class = "prettyprint linenums">
+public class Test
+{
+	public static void main(String args[])
+	{
+		Student s = new Student("Mike", 1);
+		s.display();
+
+		CSStudent c = new CSStudent("David", 2, "Scientific");
+		c.display();
+	}
+}
+			</pre>
+		</div>
+		<div class = "block">
+			<p style="text-align:center;"><img src = "slides/class4.png" width = 50%></p>
+		</div>
+		<div class = "block">
+		<pre class = "prettyprint linenums">
+public class CSStudent extends Student
+{
+	private String concentration;//either scientific or IT
+
+	public CSStudent(String n, int u, String c)
+	{
+		super(n, u);
+		concentration = c;
+	}
+
+	public String getConcentration()
+	{
+		return concentration;
+	}
+
+	public void setConcentration(String c)
+	{
+		concentration = c;
+	}
+
+	public void display()
+	{
+		//System.out.printf("%s, %s\n", name, concentration);//not able to access parent private fields directly
+		System.out.printf("Name: %s\n", getName());
+		System.out.printf("UID: %d\n", UID);
+		System.out.printf("Concentration: %s\n", concentration);
+	}
+}
+		</pre>
+		</div>
+		<div class = "block">
+			<p style="text-align:center;"><img src = "slides/class5.png" width = 50%></p>
+		</div>
+	</div>
+	</body>
+</html>

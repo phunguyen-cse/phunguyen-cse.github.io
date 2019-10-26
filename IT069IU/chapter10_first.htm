@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Polymorphism</div>
+		<div class = "block">
+			<p style="text-align:center;"><img src = "slides/Student.png" width = 40%></p>
+		</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class Student
+{
+	private String name;
+	protected int UID;
+
+	public Student()
+	{
+	}
+
+	public Student(String n)
+	{
+		name = n;
+		UID = 0;
+	}
+
+	public Student(String n, int u)
+	{
+		name = n;
+		UID = u;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public int getUID()
+	{
+		return UID;
+	}
+
+	public void setName(String n)
+	{
+		name = n;
+	}
+
+	public void setUID(int u)
+	{
+		UID = u;
+	}
+
+	public String toString()
+	{
+		return name + " " + UID;
+	}
+}
+			</pre>
+			<pre class = "prettyprint linenums">
+public class CSStudent extends Student
+{
+	private String concentration;//either scientific or IT
+
+	public CSStudent(String n, int u, String c)
+	{
+		super(n, u);
+		concentration = c;
+	}
+
+	public String getConcentration()
+	{
+		return concentration;
+	}
+
+	public void setConcentration(String c)
+	{
+		concentration = c;
+	}
+
+	public String toString()
+	{
+		return getName() + " " + UID + " " + concentration;
+	}
+}
+			</pre>
+		</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class Test
+{
+	public static void display(Student s)
+	{
+		System.out.println(s.toString());
+		System.out.println(s.getName());
+		//System.out.println(s.getConcentration());
+	}
+
+	public static void main(String args[])
+	{
+		Student s = new Student("Mike", 1);
+		display(s);
+
+		CSStudent c = new CSStudent("David", 2, "Scientific");
+		display(c);
+	}
+}
+			</pre>
+		</div>
+		<div class = "block">
+			<p style="text-align:center;"><img src = "slides/Polymorphism_2.png" width = 40%></p>
+		</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class Car
+{
+	public void f1()
+	{
+		System.out.println("f1 in Car ...");
+	}
+
+	public void f2()
+	{
+		System.out.println("f2 in Car ...");
+	}
+}
+			</pre>
+			<pre class = "prettyprint linenums">
+public class Buick extends Car
+{
+	public void f2()
+	{
+		System.out.println("f2 in Buick ...");
+	}
+
+	public void f3()
+	{
+		System.out.println("f3 in Buick ...");
+	}
+}
+			</pre>
+		</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class CarTest
+{
+	public static void main(String args[])
+	{
+		// Standard OO
+		Car c = new Car();
+		Buick b = new Buick();
+
+		c.f1();
+		c.f2();
+
+		b.f1();
+		b.f2();
+		b.f3();
+
+		// Polymorphism
+		Car b2 = new Buick();
+
+		b2.f1();
+		b2.f2();
+		//b2.f3();//error, Car has no f3
+		((Buick)b2).f3();//type conversion
+	}
+}
+			</pre>
+		</div>
+		<div class = "subtitle">Interface</div>
+		<div class = "block">
+			<p style="text-align:center;"><img src = "slides/Interface_4.png" width = 30%></p>
+		</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public interface Shape
+{
+	public String getType();
+
+	public void setType(String type);
+
+	public String toString();
+
+	public int getArea();
+}
+			</pre>
+			<pre class = "prettyprint linenums">
+public class Square implements Shape
+{
+	private String type;
+	private int edge;
+
+	public Square(String type, int edge)
+	{
+		this.type = type;
+		this.edge = edge;
+	}
+
+	public String getType() {return type;}
+	public void setType(String s) {type = s;}
+
+	public int getEdge() {return edge;}
+	public void setEdge(int e) {edge = e;}
+
+	public int getArea() {return edge*edge;}
+
+	public String toString() {return type + " " + getArea();}
+}
+			</pre>
+			<pre class = "prettyprint linenums">
+public class Rectangle implements Shape
+{
+	private String type;
+	private int width;
+	private int length;
+
+	public Rectangle(String type, int width, int length)
+	{
+		this.type = type;
+		this.width = width;
+		this.length = length;
+	}
+
+	public String getType() {return type;}
+	public void setType(String s) {type = s;}
+
+	public int getArea() {return width*length;}
+
+	public String toString() {return type + " " + getArea();}
+}
+			</pre>
+			<pre class = "prettyprint linenums">
+public class Test
+{
+	public static void display(Shape s)
+	{
+		System.out.println(s.toString());
+	}
+
+	public static void main(String args[])
+	{
+		Shape s = new Square("Square", 10);
+		display(s);
+
+		Shape r = new Rectangle("Rectangle", 5, 10);
+		display(r);
+	}
+}
+			</pre>
+		</div>
+	</body>
+</html>

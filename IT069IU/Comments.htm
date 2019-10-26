@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Why do we need comment</div>
+		<div class = "block">
+			<ul>
+				<li>Commenting places human readable description inside the computer programs</li>
+				<li>Make code maintenance easier</li>
+				<li>Help make finding bugs faster</li>
+				<li>Share code easier</li>
+			</ul>
+		</div>
+		<div class = "subtitle">Line comment, //</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+import java.util.Scanner;
+
+public class Block
+{
+	public static void main(String args[])
+	{
+		// define two variables to save radius and area
+		double radius = 1.0, area;
+
+		area = Math.PI*Math.pow(radius, 2);//caculate area
+
+		System.out.printf("Area: %10.2f", area);//print out area value on screen
+	}
+}
+			</pre>
+		</div>
+		<div class = "subtitle">Block comment, /* ... */</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+/* The program is used to calculate the area of a cycle
+ * Author: Lin
+ * Last modified: 03.21.2017
+ */
+import java.util.Scanner;
+
+public class Block
+{
+	public static void main(String args[])
+	{
+		// define two variables to save radius and area
+		double radius = 1.0, area;
+
+		area = Math.PI*Math.pow(radius, 2);//caculate area
+
+		System.out.printf("Area: %10.2f", area);//print out area value on screen
+	}
+}
+			</pre>
+		</div>
+				<div class = "subtitle">Doc comment, /** ... */</div>
+						<div class = "block">
+				<pre class = "prettyprint linenums">
+import java.util.Scanner;
+
+/**
+ * class description
+ */
+
+public class Doc
+{
+	/**
+	 * Doc name
+	 */
+	private String name;
+
+	/**
+	 * Constructor for Doc class
+	 */
+	public Doc()
+	{
+	}
+
+	/** Get doc name
+	 */
+	public String getName()
+	{
+		return name;
+	}
+
+	/** Set doc name
+	 */
+	public void setName(String s)
+	{
+		this.name = s;
+	}
+}
+				</pre>
+				<li><a href = "comments/temp2/index.html">doc</a></li>
+			</div>
+		<div class = "subtitle">Generating documents</div>
+		<div class = "block">
+			<ul>
+				<li><a href = "https://echo360.org/media/288b2ea5-3590-478a-a64d-55cb84006bdf/public">Command line</a></li>
+				<li><a href = "https://echo360.org/media/ef3bf61d-5d66-4d69-88a8-a797c25532d6/public">Javadoc in Eclipse</a></li>
+			</ul>
+		</div>
+								<div class = "subtitle">Add comments</div>
+						<div class = "block">
+							<ul>
+								<li>Add doc comments and necessary line comments</li>
+								<li>Generate documents with javadoc</li>
+							</ul>
+							<pre class = "prettyprint linenums">
+public class Student
+{
+	private int grade;
+	private String name;
+
+	// constructor
+	public Student(String name, int grade)
+	{
+		this.grade = grade;
+		this.name = name;
+	}
+
+	//accessor
+	public int getGrade() {return grade;}
+	public String getName() {return name;}
+
+	public static void main(String args[])
+	{
+		Student s1 = new Student("David", 90);
+		Student s2 = new Student("Mike", 85);
+		
+		System.out.printf("%s has better grade than %s\n", s1.getName(), s2.getName());
+	}
+}
+							</pre>
+						</div>
+						<div class = "subtitle">Tags</div>
+						<div class = "block">
+							<pre class = "prettyprint linenums">
+import java.util.Scanner;
+
+/**
+ * class description
+ * @version 1.0
+ * @author Lin Chen
+ */
+
+public class Doc
+{
+	/**
+	 * Doc name
+	 */
+	private String name;
+
+	/**
+	 * Constructor for Doc class
+	 */
+	public Doc()
+	{
+	}
+
+	/** Get doc name
+	 * @return doc name
+	 */
+	public String getName()
+	{
+		return name;
+	}
+
+	/** Set doc name
+	 * @param doc name
+	 */
+	public void setName(String s)
+	{
+		this.name = s;
+	}
+}
+							</pre>
+							<li><a href = "comments/temp/index.html">doc</a></li>
+						</div>
+		<div class = "block">
+			<a href = "https://en.wikipedia.org/wiki/Javadoc">Wiki</a>
+		</div>
+	</body>
+</html>

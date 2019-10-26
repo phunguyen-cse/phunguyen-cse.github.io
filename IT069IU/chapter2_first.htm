@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">First Java Code</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+/* Hello World
+ * CSC 230
+ */
+
+public class HelloWorld
+{//start brace
+
+	// main function, starting point of running
+	// String args[], parameters
+	public static void main(String args[])
+	{
+		// print out message to standard output
+		System.out.println("Hello World!");// semiicolon
+	}
+
+}//end brace
+			</pre>
+		</div>
+
+		<div class = "subtitle">Syntax</div>
+		<div class = "block">
+			<li>Comments
+			<ul>
+				<li>/* ... */, block comment</li>
+				<li>//, line comment</li>
+			</ul>
+			<li>{}, delimit the body of a class or method</li>
+			<li>System.out.println, display a line of string</li>
+			<li>"...", a string</li>
+			<li>;, end of a line</li>
+			<li>Java is case sensitive</li>
+		</div>
+
+		<div class = "subtitle">Compile&Run</div>
+		<div class = "block">
+			<li>Eclipse</li>
+		<img src = "slides/compile.png" width = 100%>
+		<img src = "slides/run.png" width = 100%>
+	</div>
+	<div class = "block">
+		<li>Command Line</li>
+		<img src = "slides/javaCompile.png" width = 100%>
+	</div>
+
+	</body>
+</html>

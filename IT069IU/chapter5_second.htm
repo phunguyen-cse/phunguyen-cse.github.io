@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Switch</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+//Student.java
+public class Student
+{
+	int grade;
+	String name;
+
+	// constructor
+	public Student()
+	{
+	}
+
+	public Student(String name, int grade)
+	{
+		this.grade = grade;
+		this.name = name;
+	}
+
+	// accessor
+	public int getGrade() {return grade;}
+	public String getName() {return name;}
+
+	public String getLetterGrade()
+	{
+		if (grade &gt;= 90)
+			return "A";
+		else if (grade &gt;= 80)
+			return "B";
+		else if (grade &gt;= 70)
+			return "C";
+		else if (grade &gt;= 60)
+			return "D";
+		else
+			return "F";
+	}
+
+	// mutator
+	public void setGrade(int grade)
+	{
+		this.grade = grade;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+}
+			</pre>
+		</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+//Switch.java
+import java.util.Scanner;
+
+public class Switch
+{
+	public static void main(String args[])
+	{
+		int grade;
+		Scanner s = new Scanner(System.in);
+
+		System.out.println("Enter your final grade:");
+		grade = s.nextInt();
+
+		Student st = new Student("David", grade);
+
+		switch(st.getLetterGrade())
+		{
+			case "A":
+				System.out.println("Final grade: A");
+				break;
+			case "B":
+				System.out.println("Final grade: B");
+				break;
+			default:
+				System.out.println("Work harder");
+				break;
+		}
+	}
+}
+			</pre>
+		</div>
+	</body>
+</html>

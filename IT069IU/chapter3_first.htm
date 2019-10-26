@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Blueprint</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+// Car.java
+public class Car
+{
+	private String color;
+	private String maker;
+
+	// constructor
+	public Car(String c, String m)
+	{
+		color = c;
+		maker = m;
+	}
+
+	// accessor
+	public String getColor() {return color;}
+	public String getMaker() {return maker;}
+
+	// mutator
+	public void setColor(String c) {color = c;}
+	public void setMaker(String m) {maker = m;}
+}
+
+			</pre>
+		</div>
+		<div class = "block">
+			Attributes
+			<ul>
+				<li>private, make attributes accessible by class methods only</li>
+			</ul>
+			Methods
+			<ul>
+				public String getColor()
+				<ul>
+					<li>public, is visible to public, callers outside the class are able to call it</li>
+					<li>String, data type of outputs</li>
+					<li>getColor, function name</li>
+				</ul>
+				public void setColor(String c)
+				<ul>
+					<li>void, not return any data from the function</li>
+					<li>String c, input of the function, or called arguments, which is a local variable of the function</li>
+				</ul>
+				Accessor
+				<ul>
+					<li>get the attribute values without making any changes</li>
+				</ul>
+				Mutator
+				<ul>
+					<li>functions that modify the value of attributes</li>
+				</ul>
+				Scope
+				<ul>
+					<li>Attributes and methods are accessible in the whole class</li>
+					<li>Variables defined in the methods are local variables</li>
+				</ul>
+				Constructor
+				<ul>
+					<li>method to initialize an object</li>
+					<li>No return data</li>
+					<li>Same name as the class</li>
+				</ul>
+			</ul>
+		</div>
+				<div class = "subtitle">Instance</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+// CarTest1.java
+public class CarTest1
+{
+	public static void main(String args[])
+	{
+		Car c1 = new Car("White", "Buick");
+
+		System.out.printf("C1: %s %s\n", c1.getColor(), c1.getMaker());
+
+		c1.setColor("Blue");
+		c1.setMaker("Honda");
+
+		System.out.printf("C1: %s %s\n", c1.getColor(), c1.getMaker());
+	}
+}
+			</pre>
+		</div>
+		<div class = "block">
+			new Car("White", "Blue")
+			<ul>
+				<li>new, create an object from the blueprint</li>
+				<li>Call construction method, pass "White" and "Blue" to arguments c and m respectively</li>
+			</ul>
+			Access attributes
+			<ul>
+				<li>object is not able to access attributes directly, since attributes are private</li>
+				<li>able to manipulate attributes by mothods defined in the class</li>
+				<li>object.method(), call a method defined in the class
+				<ul>
+					<li>c1.getColor()</li>
+					<li>c1.setColor("Blue")</li>
+				</ul>
+				</li>
+			</ul>
+			Arguments
+			<ul>
+				<li>methods take none or multiple arguments</li>
+				<li>each argument has data type and variable name</li>
+				<li>the data passed to a argument much match the argument data type</li>
+				<li>the number passed to a method much match the number of arguments of the method</li>
+			</ul>
+		</div>
+						<div class = "subtitle">Primitive Type and Reference Type</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class CarTest4
+{
+	public static void main(String args[])
+	{
+		// Primitive type
+		int num1, num2;
+		//System.out.printf("Default value: %d %d\n", num1, num2);
+
+		num1 = 10;
+		num2 = num1;
+		System.out.printf("Set value: %d %d\n", num1, num2);
+
+		num1 = 100;
+		System.out.printf("Change value: %d %d\n", num1, num2);
+
+		// Reference type
+		Car c1 = new Car("White", "Buick");
+		Car c2;
+
+		c2 = c1;
+
+		System.out.printf("C1: %s C2: %s\n", c1.getColor(), c2.getColor());
+
+		c1.setColor("Blue");
+
+		System.out.printf("C1: %s C2: %s\n", c1.getColor(), c2.getColor());
+	}
+}
+			</pre>
+		</div>
+		<div class = "block">
+			<p style="text-align:center;"><img src = "slides/dataType.png"></p>
+		</div>
+		<div class = "block">
+			Primitive type
+			<ul>
+				<li>boolean, byte, char, short, int, long, float, double</li>
+			</ul>
+			Reference type
+			<ul>
+				<li>objects of reference types are created by <span style = "color:red"><b><i>new</i></b></span></li>
+			</ul>
+		</div>
+		<div class = "subtitle">Constructors</div>
+				<div class = "block">
+			<img src = "slides/function.png" width=100%>
+		</div>
+				<div class = "subtitle">Scope</div>
+				<div class = "block">
+			<img src = "slides/Constructor.png" width=100%>
+		</div>
+	</body>
+</html>

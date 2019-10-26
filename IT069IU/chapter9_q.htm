@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+			div.question {color: navy; font-weight: bold; width: 75%; margin: auto 10px; border-left: 1px dotted; position: relative; padding: 10px 5px 10px 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Complete code</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class Vehicle
+{
+	private String producer;
+
+	public Vehicle()
+	{
+	}
+
+	public Vehicle(String p)
+	{
+		producer = p;
+	}
+
+	public String getProducer()
+	{
+	}
+
+	public void setProducer(String p)
+	{
+		producer = p;
+	}
+}
+			</pre>
+		</div>
+				<div class = "block">
+		<pre class = "prettyprint linenums">
+public class Car extends Vehicle
+{
+	private String model;
+
+	//put your code here
+}
+		</pre>
+	</div>
+					<div class = "block">
+	<pre class = "prettyprint linenums">
+public class CarTest
+{
+	public static void main(String args[])
+	{
+		Car c = Car("GM", "Buick");
+		c.display();//display car information
+	}
+}
+	</pre>
+</div>
+		<div class = "subtitle">Complete code</div>
+						<div class = "block">
+			<p style="text-align:center;"><img src = "slides/Shape.png" width = 50%></p>
+		</div>
+		<div class = "block">
+<pre class = "prettyprint linenums">
+public class Shape
+{
+	//put your code here
+}
+</pre>
+<pre class = "prettyprint linenums">
+public class Square extends Shape
+{
+	//put your code here
+}
+</pre>
+<pre class = "prettyprint linenums">
+public class Rectangle extends Shape
+{
+	//put your code here
+}
+</pre>
+<pre class = "prettyprint linenums">
+public class Test
+{
+	public static void main(String args[])
+	{
+		//create a scanner
+		Scanner scan = new Scanner(System.in);
+
+		//Square object
+		Square s = new Square("Square");
+		double edge;
+		edge = scan.nextDouble();
+		System.out.println("Enter the edge length of the square:")
+		s.setEdge(edge);
+		System.out.printf("Area of %s: %f\n", s.getType(), s.getArea());
+
+		//Rectangle object
+		Rectangle r = new Rectangle("Rectangle");
+		double width, height;
+		System.out.println("Enter the width of the rectangle:");
+		width = scan.nextDouble();
+		System.out.println("Enter the height of the rectangle:");
+		height = scan.nextDouble();
+		r.setWidth(width);
+		r.setHeight(height);
+		System.out.println("Area of %s: %f\n", r.getType(), r.getArea();
+	}
+}
+</pre>
+</div>
+	</body>
+</html>

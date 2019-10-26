@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>C++</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "title">
+			JApplet
+		</div>
+
+		<div class = "subtitle">Draw</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+//Draw.java
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+import javax.swing.JApplet;
+
+public class Draw extends JApplet
+{
+	private JTextField text = new JTextField("32");
+	private JLabel label = new JLabel("0");
+	private JLabel label2 = new JLabel("<html><font color=red>&deg;F</font></html>");
+	private JLabel label3 = new JLabel("<html><font color=blue>&deg;C</font></html>");
+	private JButton button = new JButton("Convert");
+	private Border border = BorderFactory.createLineBorder(Color.BLUE, 1);
+
+	public void init()
+	{
+		setSize(800, 100);
+		setLayout(null);
+
+		text.setBounds(10, 20, 200, 50);
+		text.setFont(text.getFont().deriveFont(18f));
+		label2.setBounds(210, 20, 50, 50);
+		label2.setFont(label2.getFont().deriveFont(18f));
+
+		label.setBorder(border);
+		label.setBounds(500, 20, 200, 50);
+		label.setFont(label.getFont().deriveFont(18f));
+		label3.setBounds(700, 20, 50, 50);
+		label3.setFont(label3.getFont().deriveFont(18f));
+
+		button.setBounds(260, 20, 200, 50);
+		button.setFont(button.getFont().deriveFont(18f));
+		button.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				double fTemperature = Double.parseDouble(text.getText());
+				double cTemperature = (fTemperature-32)*5/9.0;
+				String str = String.format("%.2f", cTemperature);
+				label.setText(str);
+			}
+		});
+
+		add(text);
+		add(label2);
+		add(label);
+		add(label3);
+		add(button);
+
+		//setVisible(true);
+	}
+
+	/*public static void main(String args[])
+	{
+		//create JFrame Object as the container
+		Draw draw = new Draw();
+	}*/
+}
+			</pre>
+			<pre class = "prettyprint linenums">
+//index.htm
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Hello World by Your Name&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;hr&gt;
+&lt;applet code="Draw.class" width=300 height=200&gt;
+&lt;/applet&gt;
+&lt;/hr&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+			</pre>
+		</div>
+	</body>
+</html>

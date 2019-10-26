@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Package</div>
+		<div class = "block">
+			<p style="text-align:center;"><img src = "slides/package.png" width = 50%></p>
+		</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+//Student.java
+package edu.ecsu.cs;
+
+public class Student
+{
+	private String name;
+	public Student(String n)
+	{
+		name = n;
+	}
+	public String toString()
+	{
+		return "Name: "+name;
+	}
+}
+			</pre>
+			<pre class = "prettyprint linenums">
+//Test.java
+import edu.ecsu.cs.Student;
+
+public class Test
+{
+	public static void main(String args[])
+	{
+		Student s = new Student("David");
+		System.out.println(s.toString());
+	}
+}
+			</pre>
+		</div>
+		<div class = "block">
+			<ul>
+				javac Test.java
+			</ul>
+		</div>
+	</body>
+</html>

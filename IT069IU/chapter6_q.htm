@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+			div.question {color: navy; font-weight: bold; width: 75%; margin: auto 10px; border-left: 1px dotted; position: relative; padding: 10px 5px 10px 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Complete code</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+import java.util.Scanner;
+
+public class Area
+{
+	public static void main(String args[])
+	{
+		Scanner s = new Scanner(System.in);
+		float radius;
+
+		// enter the radius of a cycle from the keyboard
+		// calculate the area using pow and PI in Math library
+		// print out the area on the screen
+	}
+}
+			</pre>
+		</div>
+				<div class = "block">
+		<pre class = "prettyprint linenums">
+import java.util.Scanner;
+
+public class Area2
+{
+	public static float getRadius()
+	{
+		Scanner s = new Scanner(System.in);
+		float radius;
+
+		//enter the radius of a cycle from the keyboard
+		//return the value of the radisu
+	}
+
+	public static float getArea(float r)
+	{
+		//use pow in Math to calculate the area of the cycle
+		//return the calculated area
+	}
+
+	public static void main(String args[])
+	{
+		float radius, area;
+
+		radius = getRadius();
+		area = getArea(radius);
+
+		System.out.printf("Area: %10.2f", area);
+	}
+}
+		</pre>
+	</div>
+	<div class = "block">
+		<p style="text-align:center;"><img src = "slides/Caller.png" width = 50%></p>
+	</div>
+	<div class = "block">
+		<ul>
+			<li>main called getRadius and getArea, main is caller of getRadius and getArea, getRadius and getArea are callees of main</li>
+			<li>Implementation order: 1 -&gt; 2 -&gt; 1 -&gt; 3 -&gt; 1</li>
+		</ul>
+	</div>
+	<div class = "block">
+		<p style="text-align:center;"><img src = "slides/Stack.png" width = 100%></p>
+	</div>
+		<div class = "block">
+		<ol>
+			<li>Stack empty</li>
+			<li>Push main onto the stack and implement main. In main, <span style = "color:red">radius</span> and <span style = "color:red">area</span> are local variables of main which are visible in main only</li>
+			<li>Push getRadius onto the stack and implement getRadius. In getRadius, <span style = "color:red">s</span> and <span style = "color:red">radius</span> are local variables</li>
+			<li>After implementing getRadius, pop up getRadius. Local variable s and radius are deleted from memory by garbage collection</li>
+			<li>Continue to implement main</li>
+			<li>Push getArea onto the stack and implement getArea. In getArea, <span style = "color:red">area</span> is local variables</li>
+			<li>After implementing getArea, pop up getArea. Local variable area is deleted from memory by garbage collection</li>
+			<li>Continue to implement main</li>
+			<li>After implementing main, pop up main</li>
+			<li>Stack empty</li>
+		</ol>
+	</div>
+	</body>
+</html>

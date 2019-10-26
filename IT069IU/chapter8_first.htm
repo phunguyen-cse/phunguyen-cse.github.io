@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Garbage collector and finalize method</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public class GC
+{
+	private String name;
+	private static int count = 0;
+
+	public GC(String n)
+	{
+		name = n;
+		count++;
+	}
+	public String getName() {return name;}
+	public void setName(String n) {name = n;}
+
+	public static int getCount() {return count;}
+
+	protected void finalize()
+	{
+		count--;
+		System.out.printf("Remove object, %d\n", count);
+	}
+
+	public static void main(String args[])
+	{
+		GC g1 = new GC("Mike");
+		GC g2 = new GC("David");
+
+		System.out.printf("%d objects have been created\n", GC.getCount());
+
+		g1 = null;
+		g2 = null;
+
+		System.out.println("Both have been marked as removed");
+
+		System.gc();
+
+		System.out.printf("Has %d objects in the memory\n", GC.getCount());
+	}
+}
+			</pre>
+		</div>
+		<div class = "block">
+			<ul>
+				<li>Garbage collector is used to release the memory of objects without reference</li>
+				<li>finalize method is called by the garbage collector to perform termination housekeeping</li>
+				<li>Garbage collector may never execute before a program terminates</li>
+			</ul>
+		</div>
+				<div class = "subtitle">Static import</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+import static java.lang.Math.*;
+
+public class Static
+{
+	public static void main(String args[])
+	{
+		double n = 10;
+
+		System.out.println(sqrt(n));
+	}
+}
+			</pre>
+		</div>
+		<div class = "block">
+			<ul>
+				A static import enable the imported static members as if they were decleared in the class that uses them
+			</ul>
+		</div>
+	</body>
+</html>

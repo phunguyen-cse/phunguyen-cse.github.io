@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Multiple Lines</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+/* Mutliple Lines
+ * CSC 230
+ */
+
+public class Multi
+{
+	public static void main(String args[])
+	{
+		System.out.println("Line 1: Welcome to ");
+		System.out.println("Line 2: Java Programming!");
+	}
+
+}
+			</pre>
+		</div>
+
+				<div class = "subtitle">Escape</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+/* Escape
+ * CSC 230
+ */
+
+public class Escape
+{
+	public static void main(String args[])
+	{
+		//escape
+		//\n, new line
+		//\t, horizontal tab
+		//\\, backslash
+		//\", double quote
+		System.out.println("Line 1: Welcome to\nLine 2: Java Programming!");
+		System.out.println("\"Name:\" Lin");
+	}
+
+}
+			</pre>
+		</div>
+
+						<div class = "subtitle">Printf</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+/* Printf
+ * CSC 230
+ */
+
+public class Printf
+{
+	public static void main(String args[])
+	{
+		//%s is a placeholder for a string
+		System.out.printf("%s -- %s\n%s!\n", "String 1", "String 2", "String 3");
+		
+		//set width
+		System.out.printf("%20s -- %20s\n%20s!\n", "String 1", "String 2", "String 3");
+	}
+
+}
+			</pre>
+		</div>
+	</body>
+</html>

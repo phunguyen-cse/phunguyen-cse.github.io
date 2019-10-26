@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Syntax</title>
+		<link rel="stylesheet" href="css/atelier-sulphurpool-light.css" type="text/css">
+		<script src="js/google-code-prettify/run_prettify.js?autoload=true&amp;lang=css"></script>
+		<style>
+			div.title {color: navy; font-weight: bold; width: 80%; font-size: 32px; text-align: center; position: relative; margin: auto;}
+			div.subtitle {color: navy; font-weight: bold; width: 80%; font-size: 24px; text-align: position: relative; margin: auto;}
+			div.block {color: navy; font-weight: bold; width: 80%; border-style: solid; padding: 5px; position: relative; margin: 10px auto; border-radius: 5px;}
+			div.question {color: navy; font-weight: bold; width: 75%; margin: auto 10px; border-left: 1px dotted; position: relative; padding: 10px 5px 10px 5px;}
+		</style>
+	</head>
+	<body>
+		<div class = "subtitle">Define Classes</div>
+		<div class = "block">
+			<pre class = "prettyprint linenums">
+public interface Car
+{
+	public String getModel();
+	public void setModel(String);
+
+	public String getProducer();
+	public void setProducer(String);
+
+	public String toString();
+}
+			</pre>
+			<pre class = "prettyprint linenums">
+public class Buick implements Car
+{
+}
+			</pre>
+			<pre class = "prettyprint linenums">
+public class Honda implements Car
+{
+}
+			</pre>
+			<pre class = "prettyprint linenums">
+public class Test
+{
+	public static void display(Car c)
+	{
+		System.out.println("Car information:");
+		System.out.println(c.toString());
+	}
+
+	public static void main(String args[])
+	{
+		Car b = new Buick("GM", "Century");
+		Car c = new Honda("Honda", "Accord");
+
+		display(b);
+		display(c);
+	}
+}
+			</pre>
+		</div>
+	</body>
+</html>
